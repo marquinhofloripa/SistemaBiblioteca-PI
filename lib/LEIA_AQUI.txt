@@ -1,0 +1,1 @@
+Coloque nesta pasta mysql-connector-j-8.0.33.jar ou execute BAIXAR_DRIVER.ps1 no Windows.

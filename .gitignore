@@ -1,0 +1,17 @@
+# Credenciais locais
+config/banco.properties
+**/banco.properties
+
+# Arquivos de compilacao
+build/
+dist/
+*.class
+
+# Configuracoes locais do NetBeans
+nbproject/private/
+
+# Arquivos temporarios
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="PI_Etapa4_SistemaBiblioteca" default="jar" basedir=".">
+ <property name="src.dir" value="src"/><property name="build.dir" value="build"/><property name="dist.dir" value="dist"/>
+ <path id="driver.path"><fileset dir="lib" includes="*.jar"/></path>
+ <target name="clean"><delete dir="${build.dir}"/><delete dir="${dist.dir}"/></target>
+ <target name="compile"><mkdir dir="${build.dir}/classes"/><javac srcdir="${src.dir}" destdir="${build.dir}/classes" source="8" target="8" encoding="UTF-8" includeantruntime="false"/></target>
+ <target name="jar" depends="compile"><mkdir dir="${dist.dir}"/><jar destfile="${dist.dir}/SistemaBiblioteca.jar" basedir="${build.dir}/classes"><manifest><attribute name="Main-Class" value="br.com.biblioteca.Main"/><attribute name="Class-Path" value="lib/mysql-connector-j-8.0.33.jar"/></manifest></jar><mkdir dir="${dist.dir}/lib"/><copy todir="${dist.dir}/lib" failonerror="false"><fileset dir="lib" includes="*.jar"/></copy><copy todir="${dist.dir}/config"><fileset dir="config" includes="*.properties"/></copy></target>
+ <target name="run" depends="jar"><java classname="br.com.biblioteca.Main" fork="true" failonerror="true" dir="${basedir}"><classpath><pathelement location="${dist.dir}/SistemaBiblioteca.jar"/><path refid="driver.path"/></classpath></java></target>
+</project>
